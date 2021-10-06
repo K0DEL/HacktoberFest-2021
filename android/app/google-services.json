@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "565569279345",
+    "firebase_url": "https://lms-339eb.firebaseio.com",
+    "project_id": "lms-339eb",
+    "storage_bucket": "lms-339eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565569279345:android:c36b3ded347ab70b7f12d0",
+        "android_client_info": {
+          "package_name": "thecodepolice.library_management_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565569279345-8ko39l5a9oj4gveems111n3b06fpiom0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAwox1NqBzxgRinseY3FX--p8A2Rhc2v4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565569279345-8ko39l5a9oj4gveems111n3b06fpiom0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,52 @@
+name: library_management_system
+description: A new Flutter application.
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+  firebase_core: ^1.7.0
+  firebase_auth: ^3.1.2
+  font_awesome_flutter: ^ 9.1.0
+  cloud_firestore: ^2.5.3
+  google_fonts: ^2.1.0
+  flutter_svg: ^0.22.0
+  drawing_animation: ^0.1.5
+  spring: ^2.0.2
+  auto_size_text: ^2.1.0
+  bottom_navy_bar: ^6.0.0
+  flashy_tab_bar: ^0.0.3
+  fl_chart: ^0.40.0
+  carousel_slider: ^4.0.0
+  fluttertoast: ^8.0.8
+  shared_preferences: ^2.0.8
+  qrscan: ^0.3.2
+  permission_handler: ^8.1.6
+  dotted_border: ^2.0.0+1
+  url_launcher: ^6.0.12
+  responsive_framework: ^0.0.4
+  line_awesome_icons: ^1.0.4+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/
+    - images/logo copy 4.svg
+    - images/demo.png
+    - images/welcome.jpg
+
+  fonts:
+    - family: Cubano
+      fonts:
+        - asset: fonts/Cubano.ttf
