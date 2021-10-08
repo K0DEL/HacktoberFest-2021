@@ -52,9 +52,3 @@ We provided all the basic functionalities of a library management app in our app
 <img src="images/search_image.png" alt="search" height="400" width="200"/>
 
 **Scan The books easily and search from the available books**
-
-#
-
-## Download Link 📱
-
-https://im-gkira.github.io/Im-gkita.github.io/
