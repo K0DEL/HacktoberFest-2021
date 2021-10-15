@@ -240,7 +240,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                         child: ColoredBox(
                                           color: Color(0XFFff6b63),
                                           child:
-                                              SizedBox(width: 12, height: 12),
+                                          SizedBox(width: 12, height: 12),
                                         ),
                                       ),
                                       SizedBox(width: 10.0),
@@ -248,10 +248,10 @@ class _AdminScreenState extends State<AdminScreen> {
                                         'Total Books',
                                         style: GoogleFonts.montserrat(
                                             textStyle: TextStyle(
-                                          color: Color(0Xaa000839),
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w600,
-                                        )),
+                                              color: Color(0Xaa000839),
+                                              fontSize: 15.0,
+                                              fontWeight: FontWeight.w600,
+                                            )),
                                       ),
                                     ],
                                   ),
@@ -266,7 +266,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                         child: ColoredBox(
                                           color: Colors.blue,
                                           child:
-                                              SizedBox(width: 12, height: 12),
+                                          SizedBox(width: 12, height: 12),
                                         ),
                                       ),
                                       SizedBox(width: 10.0),
@@ -277,52 +277,58 @@ class _AdminScreenState extends State<AdminScreen> {
                                               color: Color(0Xaa000839),
                                               fontSize: 15.0,
                                               fontWeight: FontWeight.w600,
-                                        )),
+                                            )),
                                       ),
                                     ],
                                   ),
+                                  SizedBox(height: 5.0),
                                   Row(
                                     children: [
-                                      PieChart(PieChartData(
-                                        sections: [
-                                          PieChartSectionData(
-                                            value:
-                                                ((y / x) * 100).roundToDouble(),
-                                            title:
-                                                '${((y / x) * 100).roundToDouble()}%',
-                                            color: Color(0Xff6C63FF),
-                                            radius: 100.0,
-                                            titlePositionPercentageOffset: 0.75,
-                                            titleStyle: GoogleFonts.montserrat(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w700,
+                                      Expanded(
+                                        child: AspectRatio(
+                                          aspectRatio:1,
+                                          child: PieChart(PieChartData(
+                                            sections: [
+                                              PieChartSectionData(
+                                                value:
+                                                    ((y / x) * 100).roundToDouble(),
+                                                title:
+                                                    '${((y / x) * 100).roundToDouble()}%',
+                                                color: Color(0Xff6C63FF),
+                                                radius: 100.0,
+                                                titlePositionPercentageOffset: 0.75,
+                                                titleStyle: GoogleFonts.montserrat(
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                              ),
+                                              PieChartSectionData(
+                                                  value: ((x - y) * 100 / x)
+                                                      .roundToDouble(),
+                                                  radius: 100.0,
+                                                  color: Color(0XffFF6584).withOpacity(0.9),
+                                                  title:
+                                                      '${((x - y) * 100 / x).roundToDouble()}%',
+                                                  titlePositionPercentageOffset:
+                                                      0.5,
+                                                  titleStyle:
+                                                      GoogleFonts.montserrat(
+                                                    fontSize: 14.0,
+                                                    fontWeight: FontWeight.w700,
+                                                  )),
+                                            ],
+                                            centerSpaceRadius: 5,
+                                            centerSpaceColor: Color(0Xaa2E2E42),
+                                            sectionsSpace: 5,
+                                            pieTouchData: PieTouchData(
+                                              enabled: true,
                                             ),
-                                          ),
-                                          PieChartSectionData(
-                                              value: ((x - y) * 100 / x)
-                                                  .roundToDouble(),
-                                              radius: 100.0,
-                                              color: Color(0XffFF6584).withOpacity(0.9),
-                                              title:
-                                                  '${((x - y) * 100 / x).roundToDouble()}%',
-                                              titlePositionPercentageOffset:
-                                                  0.5,
-                                              titleStyle:
-                                                  GoogleFonts.montserrat(
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w700,
-                                              )),
-                                        ],
-                                        centerSpaceRadius: 8.0,
-                                        centerSpaceColor: Color(0Xaa2E2E42),
-                                        sectionsSpace: 5,
-                                        pieTouchData: PieTouchData(
-                                          enabled: true,
+                                            borderData: FlBorderData(
+                                              show: false,
+                                            ),
+                                          )),
                                         ),
-                                        borderData: FlBorderData(
-                                          show: false,
-                                        ),
-                                      )),
+                                      ),
                                     ],
                                   ),
                                 ],
