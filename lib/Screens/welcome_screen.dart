@@ -50,6 +50,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: ListView(
               children: [
                 Container(
+                  height: 150,
+                ),
+                Container(
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.only(bottom: 5, left: 85, right: 85),
                   decoration: BoxDecoration(
