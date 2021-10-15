@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/components/admin_search_widget.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
 
 // This Page simply searches for the book of the given name.
 class AdminSearchScreen extends StatefulWidget {
@@ -169,11 +168,15 @@ class _AdminSearchScreenState extends State<AdminSearchScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     onPressed: () {
                       try {
-                        setState(() async {
-                          barcodeScanRes = await scanner.scan();
-                          c.text = barcodeScanRes.substring(7, 12);
-                          bookName = barcodeScanRes.substring(7, 12);
-                        });
+                        Fluttertoast.showToast(
+                            msg: "Currently Unavailable",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        );
                       } catch (e) {
                         print(e);
                       }
