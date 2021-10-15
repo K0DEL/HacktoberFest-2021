@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/components/issued_book_widget.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
 
 // This Class removes the books that are returned.
 class IssuedBooks extends StatefulWidget {
@@ -227,11 +226,15 @@ class _IssuedBooksState extends State<IssuedBooks> {
                         padding: EdgeInsets.symmetric(horizontal: 40.0),
                         onPressed: () {
                           try{
-                            setState(() async {
-                              barcodeScanRes = await scanner.scan();
-                              c.text = barcodeScanRes.substring(1,6);
-                              enteredCode = barcodeScanRes.substring(1,6);
-                            });}
+                            Fluttertoast.showToast(
+                                msg: "Currently Unavailable",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0
+                            );}
                           catch(e){
                             print(e);
                           }

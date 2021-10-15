@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
 
 class AddBooks extends StatefulWidget {
   static String id = 'add_books';
@@ -137,11 +136,15 @@ class _AddBooksState extends State<AddBooks> {
                       ),
                       onPressed: () {
                         try{
-                          setState(() async {
-                            barcodeScanRes = await scanner.scan();
-                            c.text = barcodeScanRes.substring(7,12);
-                            bookCode = c.text;
-                          });}
+                          Fluttertoast.showToast(
+                              msg: "Currently Unavailable",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );}
                         catch(e){
                           print(e);
                         }

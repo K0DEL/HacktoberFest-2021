@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/gender_screen.dart';
 import 'package:library_management_system/authorization/login.dart';
-import 'package:drawing_animation/drawing_animation.dart';
 
 // This Screen is the Welcome Screen That the User sees for the first time when the app starts.
 // The Static String is Used so that the routes are not named incorrectly as they are used in many places.
@@ -51,31 +49,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.14),
             child: ListView(
               children: [
-                //SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
-                Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  child: AnimatedCrossFade(
-                    secondCurve: Curves.ease,
-                    alignment: Alignment.center,
-                    duration: Duration(seconds: 6),
-                    firstChild: AnimatedDrawing.svg(
-                      "images/logo copy 4.svg",
-                      width: 180.0,
-                      lineAnimation: LineAnimation.oneByOne,
-                      scaleToViewport: true,
-                      run: this.run,
-                      duration: new Duration(seconds: 4),
-                      onFinish: () => setState(() {
-                        this.run = false;
-                      }),
-                    ),
-                    secondChild: SvgPicture.asset('images/LMS logo.svg',width: 240,color: Color(0Xcf3D3854)),
-                    crossFadeState: _crossFadeState,
-                  ),
-                ),
-                //
-                //   ),
                 Container(
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.only(bottom: 5, left: 85, right: 85),

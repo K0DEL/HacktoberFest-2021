@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/application_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
 
 // This is the widget of each search result of application_screen it brings out a bottom sheet for more options.
 class AppWidget extends StatefulWidget {
@@ -411,11 +410,15 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
                   ),
                   onPressed: () {
                     try{
-                      setState(() async {
-                        barcodeScanRes = await scanner.scan();
-                        c.text = barcodeScanRes.substring(1,6);
-                        uniqueBookCode = c.text;
-                      });}
+                      Fluttertoast.showToast(
+                          msg: "Currently Unavailable",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );}
                     catch(e){
                       print(e);
                     }
