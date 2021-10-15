@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/application_screen.dart';
@@ -361,19 +362,23 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
                     ),
                   ),
                 )
-              : Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10.0),
-                  decoration: _boxDecoration1,
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Not Available',
-                      style: _textStyle,
+              : Center(
+                child: Container(
+                    margin: EdgeInsets.only(left: 30.0),
+                    decoration: _boxDecoration1,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Not Available',
+                        style: _textStyle1,
+                      ),
                     ),
                   ),
-                ),
+              ),
+          isAvailable?
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0),
+            alignment: Alignment.center,
             decoration: _boxDecoration2,
             child: FlatButton(
               onPressed: widget.deleteApplication,
@@ -382,7 +387,9 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
                 style: _textStyle1,
               ),
             ),
-          ),
+          )
+          :
+                  Container(),
         ],
       ));
     });
@@ -576,7 +583,7 @@ BoxDecoration _boxDecoration2 = BoxDecoration(
 TextStyle _textStyle = GoogleFonts.montserrat(
   textStyle: TextStyle(
     fontSize: 21,
-    color: Color(0Xff66ff00),
+    color: Color(0Xff0cebeb),
     fontWeight: FontWeight.w600,
   ),
 );
@@ -584,7 +591,7 @@ TextStyle _textStyle = GoogleFonts.montserrat(
 TextStyle _textStyle1 = GoogleFonts.montserrat(
   textStyle: TextStyle(
     fontSize: 21,
-    color: Color(0Xffff0066),
+    color: Color(0XffEF3B36),
     fontWeight: FontWeight.w600,
   ),
 );
