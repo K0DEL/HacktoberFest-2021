@@ -15,7 +15,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
   CrossFadeState _crossFadeState = CrossFadeState.showFirst;
   bool run = true;
 
@@ -35,7 +34,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/welcome.jpg'),fit: BoxFit.cover,
+            image: AssetImage('images/welcome.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(
@@ -45,7 +45,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               borderRadius: BorderRadius.circular(20.0),
             ),
             height: MediaQuery.of(context).size.height * 0.8,
-            margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.14),
+            margin: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.14),
             child: ListView(
               children: [
                 Container(
@@ -70,14 +71,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         blurRadius: 2.0,
                         spreadRadius: 0.0,
                         offset:
-                        Offset(2.0, 2.0), // shadow direction: bottom right
+                            Offset(2.0, 2.0), // shadow direction: bottom right
                       )
                     ],
                   ),
                   child: TextButton(
-                    child: Text('Login',
-                        maxLines: 1,
-                        style: GoogleFonts.montserrat(
+                    child: Text(
+                      'Login',
+                      maxLines: 1,
+                      style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.w800,
                         fontSize: 18.0,
                         color: Color(0XFF003d5b),
@@ -90,8 +92,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 Container(
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(
-                      top: 20, bottom: 10, left: 85, right: 85),
+                  margin:
+                      EdgeInsets.only(top: 20, bottom: 10, left: 85, right: 85),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.centerRight,
@@ -108,14 +110,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         blurRadius: 2.0,
                         spreadRadius: 0.0,
                         offset:
-                        Offset(2.0, 2.0), // shadow direction: bottom right
+                            Offset(2.0, 2.0), // shadow direction: bottom right
                       )
                     ],
                   ),
                   child: TextButton(
-                    child: Text('Register',
-                        maxLines: 1,
-                        style: GoogleFonts.montserrat(
+                    child: Text(
+                      'Register',
+                      maxLines: 1,
+                      style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.w800,
                         fontSize: 18.0,
                         color: Color(0XFF003d5b),

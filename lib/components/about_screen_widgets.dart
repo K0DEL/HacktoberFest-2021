@@ -5,13 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ImageAvatar extends StatelessWidget {
-
   ImageAvatar({this.name});
   final String name;
 
   @override
   Widget build(BuildContext context) {
-
     Path customPath1 = Path();
     customPath1.addOval(Rect.fromCircle(
       center: Offset(47, 47),
@@ -30,14 +28,13 @@ class ImageAvatar extends StatelessWidget {
       radius: 70.0,
     ));
 
-
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(top: 40.0),
       decoration: BoxDecoration(
         color: Colors.black54,
         borderRadius: BorderRadius.circular(20.0),
-        border: Border.all(width: 3.0,color: Colors.white),
+        border: Border.all(width: 3.0, color: Colors.white),
       ),
       child: Column(
         children: [
@@ -67,7 +64,9 @@ class ImageAvatar extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20.0,),
+          SizedBox(
+            height: 20.0,
+          ),
           Text(
             name,
             style: GoogleFonts.permanentMarker(
@@ -84,8 +83,7 @@ class ImageAvatar extends StatelessWidget {
 }
 
 class DivideBar extends StatelessWidget {
-
-  DivideBar({this.title,this.colour});
+  DivideBar({this.title, this.colour});
   final String title;
   final Color colour;
 
@@ -95,7 +93,7 @@ class DivideBar extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.only(top:10.0,bottom: 20.0),
+          padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
           margin: EdgeInsets.symmetric(horizontal: 30.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
@@ -141,26 +139,32 @@ class MoreInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.info,color: Colors.white,),
-            SizedBox(width: 10.0,),
-            Text('MoreInfo',
+            Icon(
+              Icons.info,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 10.0,
+            ),
+            Text(
+              'MoreInfo',
               style: GoogleFonts.concertOne(
-                textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0
-                ),
+                textStyle: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             ),
           ],
         ),
       ),
-      onTap: (){
+      onTap: () {
         showAboutDialog(
           applicationName: 'LMS',
           context: context,
           applicationVersion: 'v1.0.1',
-          applicationIcon: Image(image: AssetImage('images/small_logo.png'),),
-          applicationLegalese: 'Icon made by Darius Dan and Freepik from www.flaticon.com\nWallpapers made Available by\nunsplash.com\nundraw.io\nFiqih Anggun from artstation.com',
+          applicationIcon: Image(
+            image: AssetImage('images/small_logo.png'),
+          ),
+          applicationLegalese:
+              'Icon made by Darius Dan and Freepik from www.flaticon.com\nWallpapers made Available by\nunsplash.com\nundraw.io\nFiqih Anggun from artstation.com',
         );
       },
     );
@@ -168,7 +172,7 @@ class MoreInfo extends StatelessWidget {
 }
 
 class InstructionsWidget extends StatefulWidget {
-  InstructionsWidget({this.question,this.answer});
+  InstructionsWidget({this.question, this.answer});
   final String question;
   final String answer;
   @override
@@ -176,7 +180,6 @@ class InstructionsWidget extends StatefulWidget {
 }
 
 class _InstructionsWidgetState extends State<InstructionsWidget> {
-
   List<Widget> displayList = [];
   double _height = 50;
 
@@ -207,17 +210,16 @@ class _InstructionsWidgetState extends State<InstructionsWidget> {
           child: AnimatedContainer(
             width: MediaQuery.of(context).size.width,
             height: _height,
-            margin: EdgeInsets.symmetric(horizontal: 30.0,vertical: 10.0),
-            decoration: BoxDecoration(
-            ),
+            margin: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+            decoration: BoxDecoration(),
             duration: Duration(milliseconds: 500),
             child: ListView(
               children: displayList,
             ),
           ),
-          onTap: (){
+          onTap: () {
             setState(() {
-              if(_height == 50){
+              if (_height == 50) {
                 _height = 130;
                 displayList.add(
                   Text(
@@ -230,8 +232,7 @@ class _InstructionsWidgetState extends State<InstructionsWidget> {
                     ),
                   ),
                 );
-              }
-              else{
+              } else {
                 _height = 50;
                 displayList = [];
                 displayList.add(
@@ -264,21 +265,21 @@ class _InstructionsWidgetState extends State<InstructionsWidget> {
 }
 
 class ContactUs extends StatelessWidget {
-
   void sendMail() async {
-    const uri =
-        'mailto:thecodepolice@gmail.com?subject=Greetings&body=Hello%20World';
-    if (await canLaunch(uri)) {
-      await launch(uri);
+    var uri = Uri.parse(
+        'mailto:thecodepolice@gmail.com?subject=Greetings&body=Hello%20World');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
       Fluttertoast.showToast(msg: 'Could not launch $uri');
     }
   }
 
   void sendGitHub() async {
-    const uri = 'https://github.com/Im-gkira/library_management_system';
-    if (await canLaunch(uri)) {
-      await launch(uri);
+    var uri =
+        Uri.parse('https://github.com/Im-gkira/library_management_system');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
       Fluttertoast.showToast(msg: 'Could not launch $uri');
     }
@@ -292,7 +293,7 @@ class ContactUs extends StatelessWidget {
       padding: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        border: Border.all(width: 2.0,color: Colors.white),
+        border: Border.all(width: 2.0, color: Colors.white),
       ),
       child: Column(
         children: [
@@ -313,7 +314,11 @@ class ContactUs extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.mail,color: Colors.white,size: 32,),
+                    Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                      size: 32,
+                    ),
                     Text(
                       'Mail Us',
                       style: GoogleFonts.roboto(
@@ -360,4 +365,3 @@ class ContactUs extends StatelessWidget {
     );
   }
 }
-
