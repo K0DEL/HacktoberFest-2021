@@ -16,7 +16,6 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-
   // emailAddress Stores The email address entered by the user.
   // password saves the password entered by the user.
   // _auth is Firebase Authorization Instance.
@@ -31,7 +30,7 @@ class _RegistrationState extends State<Registration> {
   String lastName;
   String rollNumber;
   String branch;
-  Map issuedBooks= {};
+  Map issuedBooks = {};
   Map applied = {};
   // Color maleColour = Colors.blueAccent.withOpacity(0.5);
   // Color femaleColour = Colors.white10;
@@ -39,14 +38,18 @@ class _RegistrationState extends State<Registration> {
   bool hidePass = true;
 
   void makeRecord() async {
-    if(firstName == null || lastName == null || rollNumber == null || branch == null || emailAddress == null || password == null){
+    if (firstName == null ||
+        lastName == null ||
+        rollNumber == null ||
+        branch == null ||
+        emailAddress == null ||
+        password == null) {
       Fluttertoast.showToast(msg: 'Field can\'t be empty');
       setState(() {
         ignore = false;
       });
-    }
-    else{
-      try{
+    } else {
+      try {
         // This Sends the data to the Firestore collection of users.
         // The document id is the emailAddress of the user filling the details.
         // After all the details are filled it takes the user to the home screen.
@@ -61,34 +64,37 @@ class _RegistrationState extends State<Registration> {
           'Gender': widget.gender,
         });
         Navigator.pushNamed(context, Login.id);
-      }
-      catch(e){
+      } catch (e) {
         setState(() {
           ignore = false;
         });
-        Fluttertoast.showToast(msg: e.toString(),);
+        Fluttertoast.showToast(
+          msg: e.toString(),
+        );
       }
     }
   }
 
   void createAccount() async {
-    try{
+    try {
       // This creates the new account using Firebase Authorization
       // Then redirects them to the enter_details.dart to fill in useful info.
       // No one can become admin using register it can solely be done by the developer of the App.
-      final newUser = await _auth.createUserWithEmailAndPassword(email: emailAddress, password: password);
-      if(newUser != null){
+      final newUser = await _auth.createUserWithEmailAndPassword(
+          email: emailAddress, password: password);
+      if (newUser != null) {
         final user = _auth.currentUser;
         await user.sendEmailVerification();
         Fluttertoast.showToast(msg: 'Verification email Send');
         makeRecord();
       }
-    }
-    catch(e){
+    } catch (e) {
       setState(() {
         ignore = false;
       });
-      Fluttertoast.showToast(msg: e.toString(),);
+      Fluttertoast.showToast(
+        msg: e.toString(),
+      );
     }
   }
 
@@ -103,19 +109,26 @@ class _RegistrationState extends State<Registration> {
             // height: MediaQuery.of(context).size.height * 0.95,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/SignIn.png',),
+                image: AssetImage(
+                  'images/SignIn.png',
+                ),
                 fit: BoxFit.scaleDown,
-                alignment: Alignment.lerp(Alignment.bottomLeft, Alignment.bottomRight, 0.4),
+                alignment: Alignment.lerp(
+                    Alignment.bottomLeft, Alignment.bottomRight, 0.4),
               ),
               color: Colors.white,
             ),
             child: ListView(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top:40),
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 40),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(FontAwesomeIcons.edit,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.penToSquare,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter First Name",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -124,10 +137,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -143,10 +158,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top: 5),
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 5),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(FontAwesomeIcons.edit,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.penToSquare,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter Last Name",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -155,10 +174,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -174,10 +195,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top: 5),
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 5),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(FontAwesomeIcons.idCard,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.idCard,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter Roll Number",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -186,10 +211,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -205,10 +232,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top: 5),
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 5),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(FontAwesomeIcons.graduationCap,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.graduationCap,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter Branch Name",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -217,10 +248,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -236,10 +269,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top: 5),
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 5),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(FontAwesomeIcons.user,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.user,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter Email",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -248,10 +285,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -267,16 +306,17 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 60,right:60,top: 5,bottom: 50),
+                  margin:
+                      EdgeInsets.only(left: 60, right: 60, top: 5, bottom: 50),
                   child: TextFormField(
                     obscureText: hidePass,
                     decoration: InputDecoration(
                       suffix: GestureDetector(
                         child: hidePass
                             ? Icon(
-                          FontAwesomeIcons.eyeSlash,
-                          color: Colors.black,
-                        )
+                                FontAwesomeIcons.eyeSlash,
+                                color: Colors.black,
+                              )
                             : Icon(FontAwesomeIcons.eye),
                         onTap: () {
                           setState(() {
@@ -284,7 +324,11 @@ class _RegistrationState extends State<Registration> {
                           });
                         },
                       ),
-                      prefixIcon: Icon(FontAwesomeIcons.key,size: 18.0,color: Color(0Xff6B63FF),),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.key,
+                        size: 18.0,
+                        color: Color(0Xff6B63FF),
+                      ),
                       labelText: "Enter Password",
                       labelStyle: GoogleFonts.montserrat(
                         color: Colors.black,
@@ -293,10 +337,12 @@ class _RegistrationState extends State<Registration> {
                       ),
                     ),
                     validator: (val) {
-                      if(val.length==0) {
-                        Fluttertoast.showToast(msg: 'Required Field',);
+                      if (val.length == 0) {
+                        Fluttertoast.showToast(
+                          msg: 'Required Field',
+                        );
                         return "Required Field";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -312,8 +358,7 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                      top: 5, left: 115, right: 115),
+                  margin: EdgeInsets.only(top: 5, left: 115, right: 115),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.centerRight,
@@ -330,7 +375,7 @@ class _RegistrationState extends State<Registration> {
                         blurRadius: 2.0,
                         spreadRadius: 0.0,
                         offset:
-                        Offset(2.0, 2.0), // shadow direction: bottom right
+                            Offset(2.0, 2.0), // shadow direction: bottom right
                       )
                     ],
                   ),
@@ -346,11 +391,11 @@ class _RegistrationState extends State<Registration> {
                           color: Colors.white,
                         ),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           ignore = true;
                         });
-                        Future.delayed(Duration(milliseconds: 800),(){
+                        Future.delayed(Duration(milliseconds: 800), () {
                           setState(() {
                             ignore = false;
                           });
