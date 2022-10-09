@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AddBooks extends StatefulWidget {
@@ -324,7 +322,7 @@ class _AddBooksState extends State<AddBooks> {
                       )
                     ],
                   ),
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text(
                       'Add Book',
                       style: GoogleFonts.montserrat(
@@ -346,14 +344,14 @@ class _AddBooksState extends State<AddBooks> {
                           content: Text(
                               'We currently do not have the ability to update book contents. So please be extra sure.'),
                           actions: [
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                                 bookDataCheck();
                               },
                               child: Text('Proceed'),
                             ),
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                               },

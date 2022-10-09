@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -337,7 +336,7 @@ class _RegistrationState extends State<Registration> {
                   ),
                   child: IgnorePointer(
                     ignoring: ignore,
-                    child: FlatButton(
+                    child: TextButton(
                       child: Text(
                         'Register',
                         maxLines: 1,

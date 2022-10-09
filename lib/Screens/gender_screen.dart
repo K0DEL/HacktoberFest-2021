@@ -119,7 +119,7 @@ class _GenderScreenState extends State<GenderScreen> {
                 borderRadius: BorderRadius.circular(20.0),
                 color: Colors.white,
               ),
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   'Continue',
                   style: GoogleFonts.montserrat(

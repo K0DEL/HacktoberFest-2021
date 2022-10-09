@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/application_screen.dart';
@@ -154,7 +153,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                       ],
                                     ),
                                     Container(
-                                      child: FlatButton(
+                                      child: TextButton(
                                         child: Icon(
                                           Icons.info,
                                           size: 38.0,

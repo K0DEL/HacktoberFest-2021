@@ -29,7 +29,7 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
   // Then adds the data to userInfoList which was public in the application_screen.dart.
   // The userInfoList is emptied each time this function runs.
   Future userInfo() async {
-    try{
+    try {
       userInfoList = [];
       var borrower = widget.issuedBookContent['Borrower'];
       final userData = await _firestore.collection('users').doc(borrower).get();
@@ -63,8 +63,10 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
           ),
         ),
       ));
-    }catch(e){
-      Fluttertoast.showToast(msg: e.toString(),);
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: e.toString(),
+      );
     }
   }
 
@@ -72,7 +74,7 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
   // If it is -ve it means that the book is returned in time hence the fine is rounded to zero.
   // If It is +ve it means that the book is returned after the due and hence the no.of extra days are displayed.
   void fineCalculated() {
-    try{
+    try {
       var due = widget.issuedBookContent['Due Date'].toDate();
       var cur = DateTime.now();
       fine = cur.difference(due).inDays;
@@ -81,8 +83,10 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
       }
       trimmedDate = due.toString().split(" ")[0];
       trimmedDate = trimmedDate.split('-').reversed.join('-');
-    }catch(e){
-      Fluttertoast.showToast(msg: e.toString(),);
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: e.toString(),
+      );
     }
   }
 
@@ -120,10 +124,14 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
       Navigator.pop(context);
       setState(() {
         widget.viewIssuedBooks();
-        Fluttertoast.showToast(msg: 'Books Updated',);
+        Fluttertoast.showToast(
+          msg: 'Books Updated',
+        );
       });
     } catch (e) {
-      Fluttertoast.showToast(msg: e.toString(),);
+      Fluttertoast.showToast(
+        msg: e.toString(),
+      );
     }
   }
 
@@ -136,7 +144,9 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Container(
           decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("images/issuedbottomSheet.png"),fit: BoxFit.fitWidth),
+            image: DecorationImage(
+                image: AssetImage("images/issuedbottomSheet.png"),
+                fit: BoxFit.fitWidth),
             color: Color(0Xff737373),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.0),
@@ -160,13 +170,15 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15.0,),
+                SizedBox(
+                  height: 15.0,
+                ),
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(35.0)),
                   elevation: 26.0,
                   shadowColor: Colors.black,
-                  color:  Color(0Xffb963ff).withOpacity(0.5),
+                  color: Color(0Xffb963ff).withOpacity(0.5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -232,26 +244,36 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
                           SizedBox(height: 15.0),
                           userInfoList[2],
                           SizedBox(height: 15.0),
-                          Text('$fine',style: GoogleFonts.montserrat(
-                            textStyle: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),),),
+                          Text(
+                            '$fine',
+                            style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
                           SizedBox(height: 15.0),
-                          Text('$trimmedDate',style: GoogleFonts.montserrat(
-                            textStyle: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),),),
+                          Text(
+                            '$trimmedDate',
+                            style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
                           SizedBox(height: 15.0),
                         ],
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 15.0,),
+                SizedBox(
+                  height: 15.0,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -268,21 +290,24 @@ class _IssuedBookWidgetState extends State<IssuedBookWidget> {
                         color: Colors.black87,
                         blurRadius: 2.0,
                         spreadRadius: 0.0,
-                        offset: Offset(
-                            2.0, 2.0), // shadow direction: bottom right
+                        offset:
+                            Offset(2.0, 2.0), // shadow direction: bottom right
                       )
                     ],
                   ),
-                  child: FlatButton(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 120.0),
-                    child: Text('Remove',
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 120.0)),
+                    child: Text(
+                      'Remove',
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
-                        ),),),
+                        ),
+                      ),
+                    ),
                     onPressed: deleteIssuedBook,
                   ),
                 ),

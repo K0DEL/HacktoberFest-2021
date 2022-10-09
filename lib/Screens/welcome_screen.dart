@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/gender_screen.dart';
@@ -75,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       )
                     ],
                   ),
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text('Login',
                         maxLines: 1,
                         style: GoogleFonts.montserrat(
@@ -113,7 +112,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       )
                     ],
                   ),
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text('Register',
                         maxLines: 1,
                         style: GoogleFonts.montserrat(

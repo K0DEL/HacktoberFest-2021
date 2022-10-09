@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -182,7 +181,7 @@ class _BookScreenState extends State<BookScreen> {
               value:'${widget.bookContent['Total Quantity']}',
               imageName: 'bookshelf.png',
             ),
-            FlatButton(
+            TextButton(
               // If the isAdmin is true the user can cannot issue the book.
               // If the isAvailable is true the user cannot issue the book.
               onPressed: isAdmin ? (){} : isAvailable ? checkIssued : (){

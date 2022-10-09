@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:library_management_system/Screens/admin_screen.dart';
 import 'package:library_management_system/Screens/home_screen.dart';
@@ -221,14 +219,14 @@ class _LoginState extends State<Login> {
                             },
                           ),
                           actions: [
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 resetPassword();
                                 Navigator.pop(context);
                               },
                               child: Text('Send'),
                             ),
-                            FlatButton(
+                            TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                               },
@@ -268,14 +266,14 @@ class _LoginState extends State<Login> {
                         blurRadius: 2.0,
                         spreadRadius: 0.0,
                         offset:
-                        Offset(2.0, 2.0), // shadow direction: bottom right
+                            Offset(2.0, 2.0), // shadow direction: bottom right
                       )
                     ],
                   ),
                   child: IgnorePointer(
                     ignoring: ignore,
-                    child: FlatButton(
-                      padding: EdgeInsets.all(0),
+                    child: TextButton(
+                      style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
                       child: Text(
                         'Login',
                         maxLines: 1,

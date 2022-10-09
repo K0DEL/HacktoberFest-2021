@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/Screens/application_screen.dart';
@@ -354,7 +353,7 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
               ? Container(
                   margin: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: _boxDecoration1,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: bottomSheetPhaseTwo,
                     child: Text(
                       'Accept',
@@ -380,7 +379,7 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
             margin: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.center,
             decoration: _boxDecoration2,
-            child: FlatButton(
+            child: TextButton(
               onPressed: widget.deleteApplication,
               child: Text(
                 'Reject',
@@ -502,7 +501,7 @@ class _BottomSheetContentsState extends State<BottomSheetContents> {
             Container(
               margin: EdgeInsets.only(top: 20.0),
               decoration: _boxDecoration2,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: widget.getIssued,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

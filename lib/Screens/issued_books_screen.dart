@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_management_system/components/issued_book_widget.dart';
 import 'package:flutter/services.dart';
@@ -105,7 +103,8 @@ class _IssuedBooksState extends State<IssuedBooks> {
   @override
   Widget build(BuildContext context) {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -113,7 +112,8 @@ class _IssuedBooksState extends State<IssuedBooks> {
         appBar: TabBar(
           onTap: (value) {
             SystemChannels.textInput.invokeMethod('TextInput.hide');
-            SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+            SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+                overlays: [SystemUiOverlay.bottom]);
           },
           labelPadding: EdgeInsets.only(top: 10.0),
           labelStyle: GoogleFonts.montserrat(
@@ -139,9 +139,9 @@ class _IssuedBooksState extends State<IssuedBooks> {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("images/allBooks.png"),
-                  alignment: Alignment.lerp(Alignment.bottomCenter,Alignment.center, 0.40)
-                ),
+                    image: AssetImage("images/allBooks.png"),
+                    alignment: Alignment.lerp(
+                        Alignment.bottomCenter, Alignment.center, 0.40)),
                 color: Colors.white,
               ),
               child: Column(
@@ -179,8 +179,11 @@ class _IssuedBooksState extends State<IssuedBooks> {
                       ),
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.search,color: Colors.black,
-                              size: 24,),
+                            icon: Icon(
+                              Icons.search,
+                              color: Colors.black,
+                              size: 24,
+                            ),
                             onPressed: viewEnteredBook),
                         labelText: "Enter Unique Code of the Book",
                         labelStyle: GoogleFonts.montserrat(
@@ -217,15 +220,19 @@ class _IssuedBooksState extends State<IssuedBooks> {
                             color: Colors.black,
                             blurRadius: 2.0,
                             spreadRadius: 0.0,
-                            offset:
-                            Offset(2.0, 2.0), // shadow direction: bottom right
+                            offset: Offset(
+                                2.0, 2.0), // shadow direction: bottom right
                           )
                         ],
                       ),
-                      child: FlatButton(
-                        padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.symmetric(horizontal: 40),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            )),
                         onPressed: () {
-                          try{
+                          try {
                             Fluttertoast.showToast(
                                 msg: "Currently Unavailable",
                                 toastLength: Toast.LENGTH_SHORT,
@@ -233,15 +240,11 @@ class _IssuedBooksState extends State<IssuedBooks> {
                                 timeInSecForIosWeb: 1,
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,
-                                fontSize: 16.0
-                            );}
-                          catch(e){
+                                fontSize: 16.0);
+                          } catch (e) {
                             print(e);
                           }
                         },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
                         child: AutoSizeText('Scan',
                             maxLines: 1,
                             style: GoogleFonts.montserrat(
@@ -327,11 +330,11 @@ class _IssuedBooksState extends State<IssuedBooks> {
                         child: DefaultTextStyle(
                           style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
-                                color: Color(0Xff14274e),
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 1.6,
-                              )),
+                            color: Color(0Xff14274e),
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.6,
+                          )),
                           child: Builder(
                             builder: (context) {
                               return SizedBox(
@@ -388,7 +391,7 @@ class _IssuedBooksState extends State<IssuedBooks> {
                             )
                           ],
                         ),
-                        child: FlatButton(
+                        child: TextButton(
                             child: AutoSizeText('Check All Issued Books',
                                 maxLines: 1,
                                 style: GoogleFonts.montserrat(

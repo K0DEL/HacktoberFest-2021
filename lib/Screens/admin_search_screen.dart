@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -164,8 +163,12 @@ class _AdminSearchScreenState extends State<AdminSearchScreen> {
                       )
                     ],
                   ),
-                  child: FlatButton(
-                    padding: EdgeInsets.symmetric(horizontal: 40.0),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 40.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        )),
                     onPressed: () {
                       try {
                         Fluttertoast.showToast(
@@ -175,15 +178,11 @@ class _AdminSearchScreenState extends State<AdminSearchScreen> {
                             timeInSecForIosWeb: 1,
                             backgroundColor: Colors.red,
                             textColor: Colors.white,
-                            fontSize: 16.0
-                        );
+                            fontSize: 16.0);
                       } catch (e) {
                         print(e);
                       }
                     },
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
                     child: AutoSizeText('Scan',
                         maxLines: 1,
                         style: GoogleFonts.montserrat(

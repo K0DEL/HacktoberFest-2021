@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
@@ -62,7 +61,7 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -163,7 +162,7 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
                       )
                     ],
                   ),
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text(
                       'View Applications',
                       style: GoogleFonts.montserrat(

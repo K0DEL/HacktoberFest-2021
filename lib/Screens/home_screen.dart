@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -202,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: applicationList,
                 ),
                 SizedBox(height: 20.0,),
-                FlatButton(
+                TextButton(
                   child: Icon(
                     Icons.info,
                     size: 32.0,
